@@ -13,6 +13,9 @@ func main() {
 
 	router.Handle("/products", handlers.GetProductHandler()).Methods("GET")
 	router.Handle("/products", handlers.CreateProductHandler()).Methods("POST")
+	router.Handle("/products/{id}", handlers.GetProductHandler()).Methods("GET")
+	router.Handle("/products/{id}", handlers.DeleteProductHandler()).Methods("DELETE")
+	router.Handle("/products/{id}", handlers.UpdateProductHandler()).Methods("PUT")
 
 	// Create new server and assign the router
 	server := http.Server{
