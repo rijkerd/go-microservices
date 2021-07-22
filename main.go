@@ -20,7 +20,7 @@ func main() {
 	// Create new server and assign the router
 	server := http.Server{
 		Addr:    ":5000",
-		Handler: router,
+		Handler: handlers.AuthHandler(router),
 	}
 
 	fmt.Println("Staring Product Catalog server on Port 9090")
