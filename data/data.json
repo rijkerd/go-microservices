@@ -19,5 +19,12 @@
     "description": "Pro max variant of iPhone 12",
     "price": 120000,
     "isAvailable": true
+  },
+  {
+    "id": "e7f31219-7986-11eb-bd65-98fa9b64e75b",
+    "name": "iPhone 12 Pro Max",
+    "description": "Pro variant of iPhone 12 Max",
+    "price": 20000,
+    "isAvailable": false
   }
 ]
