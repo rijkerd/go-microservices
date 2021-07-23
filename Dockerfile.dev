@@ -1,0 +1,17 @@
+FROM golang:alpine AS builder
+
+WORKDIR /go-microservices/
+
+COPY . .
+
+RUN CGO_ENABLED=0 go build -o microservices /go-microservices/main.go
+
+FROM alpine:latest
+
+WORKDIR /go-microservices
+
+COPY --from=builder /go-microservices/ /go-microservices/
+
+EXPOSE 5000
+
+CMD ./microservices
