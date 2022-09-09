@@ -4,9 +4,9 @@ import "payment/models"
 
 func GetPayments() []models.Payment {
 	payments := []models.Payment{
-		{ID: 1, Ref: "test1", Amount: 65.4, Currency: "GBP"},
-		{ID: 2, Ref: "test2", Amount: 50.9, Currency: "GBP"},
-		{ID: 3, Ref: "test3", Amount: 60.7, Currency: "GBP"},
+		{ID: 1, Ref: "RF091ZSHS", Amount: 1000.0, Currency: "RUB"},
+		{ID: 2, Ref: "JK123DFZ", Amount: 500.0, Currency: "RUB"},
+		{ID: 3, Ref: "KL09012112", Amount: 600.0, Currency: "RUB"},
 	}
 	return payments
 }
