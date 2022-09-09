@@ -6,6 +6,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/gofiber/fiber/v2/middleware/monitor"
 )
 
 func setupRoutes(app *fiber.App) {
@@ -27,6 +28,8 @@ func main() {
 
 	app.Use(cors.New())
 	app.Use(logger.New())
+
+	app.Get("/metrics", monitor.New(monitor.Config{Title: "Payment Service"}))
 
 	setupRoutes(app)
 
