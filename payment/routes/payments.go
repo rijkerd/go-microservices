@@ -8,4 +8,5 @@ import (
 
 func PaymentRoute(route fiber.Router) {
 	route.Get("/", controllers.GetAllPayments)
+	route.Get("/:id", controllers.GetSinglePayment)
 }
