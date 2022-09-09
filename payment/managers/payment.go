@@ -1,6 +1,6 @@
 package managers
 
-import "go-microservices/payment/models"
+import "payment/models"
 
 func GetPayments() []models.Payment {
 	payments := []models.Payment{

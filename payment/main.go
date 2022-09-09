@@ -1,14 +1,34 @@
 package main
 
-// import "github.com/gofiber/fiber/v2"
+import (
+	"payment/routes"
+
+	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
+	"github.com/gofiber/fiber/v2/middleware/logger"
+)
+
+func setupRoutes(app *fiber.App) {
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.Status(fiber.StatusOK).JSON(fiber.Map{
+			"success":     true,
+			"message":     "You are at the root endpoint 😉",
+			"github_repo": "rijkerd",
+		})
+	})
+
+	api := app.Group("/api")
+
+	routes.PaymentRoute(api.Group("/payment"))
+}
 
 func main() {
-	// app := fiber.New()
+	app := fiber.New()
 
-	// app.Get("/", func(c *fiber.Ctx) error {
-	// 	// return c.SendString("Hello, World!")
-	// 	return c.SendString("")
-	// })
+	app.Use(cors.New())
+	app.Use(logger.New())
 
-	// app.Listen(":3000")
+	setupRoutes(app)
+
+	app.Listen(":3000")
 }
