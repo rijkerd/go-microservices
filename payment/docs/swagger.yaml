@@ -1,0 +1,15 @@
+basePath: /
+host: localhost:3000
+info:
+  contact:
+    email: richardaggrey7@gmail.com
+    name: Richard Aggre
+  description: Payment api build with go Fiber
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://rijkerd.github.io
+  title: Payment
+  version: "1.0"
+paths: {}
+swagger: "2.0"

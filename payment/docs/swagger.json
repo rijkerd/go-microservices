@@ -1,0 +1,20 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Payment api build with go Fiber",
+        "title": "Payment",
+        "termsOfService": "http://rijkerd.github.io",
+        "contact": {
+            "name": "Richard Aggre",
+            "email": "richardaggrey7@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "paths": {}
+}
