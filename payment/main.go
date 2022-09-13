@@ -1,6 +1,8 @@
 package main
 
 import (
+	"log"
+	"os"
 	"payment/routes"
 
 	"github.com/gofiber/fiber/v2"
@@ -11,6 +13,8 @@ import (
 	_ "payment/docs"
 
 	"github.com/gofiber/swagger"
+
+	"github.com/joho/godotenv"
 )
 
 func setupRoutes(app *fiber.App) {
@@ -39,6 +43,12 @@ func setupRoutes(app *fiber.App) {
 // @host localhost:3000
 // @BasePath /
 func main() {
+	if os.Getenv("APP_ENV") != "production" {
+		err := godotenv.Load()
+		if err != nil {
+			log.Fatal("Error loading .env file")
+		}
+	}
 	app := fiber.New()
 
 	app.Use(cors.New())
@@ -49,5 +59,11 @@ func main() {
 
 	setupRoutes(app)
 
-	app.Listen(":3000")
+	port := os.Getenv("PORT")
+	err := app.Listen(":" + port)
+
+	if err != nil {
+		log.Fatal("Error app failed to start")
+		panic(err)
+	}
 }
